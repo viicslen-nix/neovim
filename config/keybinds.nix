@@ -10,7 +10,7 @@
     };
 
     tabline.nvimBufferline.mappings = {
-      closeCurrent = "<leader>x";
+      closeCurrent = "<leader>q";
       cycleNext = "<Tab>";
       cyclePrevious = "<S-Tab>";
     };

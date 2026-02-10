@@ -117,23 +117,101 @@ nix develop
     └── neotest-pest.nix    # Pest testing plugin package
 ```
 
-## Key Bindings
+## Keybindings Reference
 
-### Custom Bindings
+This configuration follows a **unified keymap philosophy** shared with the window managers (Hyprland/Niri) and Nixvim to maximize muscle memory and minimize cognitive overhead. See the **Unified Keymap Philosophy** section below for details.
 
-- `<C-s>` - Save file (Normal, Visual, Insert modes)
-- `<leader>;` - Insert semicolon at end of line
-- `<leader>,` - Insert comma at end of line
-- `>` / `<` - Indent/unindent selection (Visual mode)
+### Leader Key
+- `<leader>` = `Space`
 
-### LSP Bindings
+### Core Keybinds
 
-- `<leader>gD` - Go to declaration
-- `<leader>gd` - Go to definition
-- `<leader>gt` - Go to type definition
-- `<leader>h` - Show hover information
-- `<leader>gi` - List implementations
-- `<leader>gr` - List references
+**File Operations**
+| Keybind | Mode | Action |
+|---------|------|--------|
+| `Ctrl + S` | n, v, i | Save file |
+| `<leader>;` | n | Append semicolon |
+| `<leader>,` | n | Append comma |
+
+**Buffer Management**
+| Keybind | Mode | Action |
+|---------|------|--------|
+| `Tab` | n | Next buffer |
+| `Shift + Tab` | n | Previous buffer |
+| `<leader>q` | n | Close buffer |
+
+**Visual Mode**
+| Keybind | Mode | Action |
+|---------|------|--------|
+| `>` | v | Indent selection (stay in visual) |
+| `<` | v | Unindent selection (stay in visual) |
+
+**Comments**
+| Keybind | Mode | Action |
+|---------|------|--------|
+| `Ctrl + /` | n, v | Toggle line/selection comment |
+| `Ctrl + ?` | n, v | Toggle block comment |
+| `<leader>/` | n | Toggle operator line |
+| `<leader>?` | n | Toggle operator block |
+
+**AI Assistance**
+| Keybind | Mode | Action |
+|---------|------|--------|
+| `Alt + L` | i | Accept Copilot line |
+
+### LSP Keybinds (Leader + G)
+
+| Keybind | Mode | Action |
+|---------|------|--------|
+| `<leader>gD` | n | Go to declaration |
+| `<leader>gd` | n | Go to definition |
+| `<leader>gt` | n | Go to type definition |
+| `<leader>h` | n | Hover documentation |
+| `<leader>gi` | n | List implementations |
+| `<leader>gr` | n | List references |
+
+### Laravel Operations (Leader + LL)
+
+| Keybind | Mode | Action |
+|---------|------|--------|
+| `<leader>lla` | n | Laravel Artisan |
+| `<leader>llr` | n | Laravel Routes |
+| `<leader>llm` | n | Laravel Related |
+| `gf` | n | Smart goto file (resource-aware) |
+
+### Git Worktrees (Leader + GW)
+
+| Keybind | Mode | Action |
+|---------|------|--------|
+| `<leader>gws` | n | Worktrees picker |
+| `<leader>gwc` | n | Create new worktree |
+| `<leader>gwa` | n | Worktree for existing branch |
+
+### Unified Keymap Philosophy
+
+This configuration is part of a **cross-system keymap standardization** that spans both editors (Neovim/Nixvim) and window managers (Hyprland/Niri).
+
+**Design Principles:**
+1. **Leader-based namespacing**: Logical grouping of related actions (`<leader>g*` for git, `<leader>ll*` for Laravel, etc.)
+2. **Plugin-specific mappings**: Comment, Copilot, and buffer navigation configured through plugin settings
+3. **Consistent with Nixvim**: Same keybinds as the Nixvim config for seamless switching
+4. **Mnemonic keys**: Q for quit, G for git, LL for Laravel, etc.
+5. **Cross-system harmony**: Editor keybinds mirror window manager patterns
+
+**Cross-System Consistency:**
+- **Close/Quit**: `<leader>q` (buffer), `SUPER+Q` (window in WMs)
+- **File Navigation**: Laravel's `gf` enhances resource discovery, matching WM file manager philosophy
+- **Namespace Organization**: Same structure as Nixvim for muscle memory
+
+**Namespace Organization:**
+- `<leader>g*` - Git and LSP operations
+- `<leader>gw*` - Git worktrees (sub-namespace)
+- `<leader>ll*` - Laravel operations
+- Plugin-specific: Configured via plugin mappings (comment-nvim, copilot, bufferline)
+
+This structured approach reduces cognitive load and makes muscle memory transferable between your editor and window manager.
+
+See the Hyprland, Niri, and Nixvim READMEs for their implementations of this unified system.
 
 ### Which-Key Integration
 
