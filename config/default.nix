@@ -54,7 +54,7 @@
         zig.enable = true;
         php = {
           enable = true;
-          lsp.server = "intelephense";
+          lsp.servers = ["intelephense"];
         };
 
         ts = {

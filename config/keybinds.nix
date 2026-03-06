@@ -1,12 +1,12 @@
 {
   config.vim = {
     lsp.mappings = {
-      goToDeclaration = "<leader>gD";
-      goToDefinition = "<leader>gd";
-      goToType = "<leader>gt";
-      hover = "<leader>h";
-      listImplementations = "<leader>gi";
-      listReferences = "<leader>gr";
+      goToDeclaration = "<leader>lD";
+      goToDefinition = "<leader>ld";
+      goToType = "<leader>lt";
+      hover = "<leader>lh";
+      listImplementations = "<leader>li";
+      listReferences = "<leader>lr";
     };
 
     tabline.nvimBufferline.mappings = {
