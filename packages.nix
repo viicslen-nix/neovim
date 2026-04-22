@@ -10,6 +10,8 @@
     lib,
     ...
   }: let
+    sharedPackages = inputs.packages.packages.${system};
+
     # Create nixpkgs with unfree allowed for nvf
     pkgsUnfree = import inputs.nixpkgs {
       inherit system;
@@ -22,10 +24,10 @@
   in {
     packages = {
       mcphub-nvim = inputs.mcphub-nvim.packages."${system}".default;
-      mcp-hub = pkgs.callPackage ./pkgs/mcp-hub.nix {};
-      laravel-nvim = pkgs.callPackage ./pkgs/laravel-nvim.nix {};
-      neotest-pest = pkgs.callPackage ./pkgs/neotest-pest.nix {};
-      worktrees-nvim = pkgs.callPackage ./pkgs/worktrees-nvim.nix {};
+      mcp-hub = sharedPackages.nvim.mcp-hub;
+      laravel-nvim = sharedPackages.nvim.laravel-nvim;
+      neotest-pest = sharedPackages.nvim.neotest-pest;
+      worktrees-nvim = sharedPackages.nvim.worktrees-nvim;
 
       default =
         (inputs.nvf.lib.neovimConfiguration {
