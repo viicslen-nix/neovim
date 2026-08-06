@@ -4,6 +4,7 @@
   laravel-nvim,
   mcphub-nvim,
   mcp-hub,
+  laravel-lsp,
   pkgs,
   lib,
   ...
@@ -70,6 +71,17 @@
         lspkind.enable = true;
         otter-nvim.enable = true;
         trouble.enable = true;
+
+        # Laravel LSP (framework-aware; runs alongside intelephense)
+        lspconfig.sources.laravel-lsp = ''
+          vim.lsp.config('laravel_lsp', {
+            cmd = { 'laravel-lsp' },
+            filetypes = { 'php', 'blade' },
+            root_markers = { 'artisan', 'composer.json', '.git' },
+            capabilities = capabilities,
+          })
+          vim.lsp.enable('laravel_lsp')
+        '';
 
         # lspconfig.sources.phpactor = mkForce ''
         #   lspconfig.phpactor.setup {
@@ -345,6 +357,7 @@
 
       extraPackages = [
         mcp-hub
+        laravel-lsp
       ];
     };
   };

@@ -28,6 +28,7 @@
       laravel-nvim = sharedPackages.nvim.laravel-nvim;
       neotest-pest = sharedPackages.nvim.neotest-pest;
       worktrees-nvim = sharedPackages.nvim.worktrees-nvim;
+      laravel-lsp = sharedPackages.php.laravel-lsp;
 
       default =
         (inputs.nvf.lib.neovimConfiguration {
@@ -43,6 +44,7 @@
                   mcphub-nvim
                   mcp-hub
                   worktrees-nvim
+                  laravel-lsp
                   ;
               };
             }
