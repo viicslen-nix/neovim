@@ -51,8 +51,8 @@ This flake provides a fully-featured Neovim setup optimized for modern developme
 
 ### AI & Productivity
 
-- **GitHub Copilot**: AI-powered code completion and suggestions
-- **Avante.nvim**: Advanced AI assistant with Claude integration
+- **Supermaven**: Inline AI code completion
+- **Avante.nvim**: AI assistant driving the local Claude Code CLI over ACP
 - **Wakatime**: Development time tracking
 - **Snippet Management**: LuaSnip for code snippets
 - **Formatting**: Conform.nvim with PHP Pint integration
@@ -157,7 +157,9 @@ This configuration follows a **unified keymap philosophy** shared with the windo
 **AI Assistance**
 | Keybind | Mode | Action |
 |---------|------|--------|
-| `Alt + L` | i | Accept Copilot line |
+| `Alt + Shift + L` | i | Accept Supermaven suggestion |
+| `Alt + L` | i | Accept Supermaven word |
+| `Alt + ]` | i | Clear Supermaven suggestion |
 
 ### LSP Keybinds (Leader + G)
 
@@ -193,7 +195,7 @@ This configuration is part of a **cross-system keymap standardization** that spa
 
 **Design Principles:**
 1. **Leader-based namespacing**: Logical grouping of related actions (`<leader>g*` for git, `<leader>ll*` for Laravel, etc.)
-2. **Plugin-specific mappings**: Comment, Copilot, and buffer navigation configured through plugin settings
+2. **Plugin-specific mappings**: Comment, Supermaven, and buffer navigation configured through plugin settings
 3. **Consistent with Nixvim**: Same keybinds as the Nixvim config for seamless switching
 4. **Mnemonic keys**: Q for quit, G for git, LL for Laravel, etc.
 5. **Cross-system harmony**: Editor keybinds mirror window manager patterns
@@ -207,7 +209,7 @@ This configuration is part of a **cross-system keymap standardization** that spa
 - `<leader>g*` - Git and LSP operations
 - `<leader>gw*` - Git worktrees (sub-namespace)
 - `<leader>ll*` - Laravel operations
-- Plugin-specific: Configured via plugin mappings (comment-nvim, copilot, bufferline)
+- Plugin-specific: Configured via plugin mappings (comment-nvim, supermaven-nvim, bufferline)
 
 This structured approach reduces cognitive load and makes muscle memory transferable between your editor and window manager.
 
@@ -232,8 +234,8 @@ The configuration uses Which-Key with Helix preset for discoverable keybindings.
 
 ### AI Integration
 
-- **Copilot**: Integrated with completion system
-- **Avante**: Advanced AI features with cursor planning and Claude tool mode
+- **Supermaven**: Inline completion suggestions
+- **Avante**: Agent chat via the `claude-code` ACP provider (uses the local `claude` login)
 
 ### Development Workflow
 

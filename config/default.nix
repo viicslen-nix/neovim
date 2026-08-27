@@ -209,16 +209,13 @@
       };
 
       assistant = {
-        copilot = {
-          enable = true;
-          cmp.enable = true;
-        };
+        supermaven-nvim.enable = true;
         avante-nvim = {
           enable = true;
           setupOpts = {
-            provider = "copilot";
-            cursor_applying_provider = "copilot";
-            auto_suggestions_provider = "copilot";
+            # Drives the local `claude` CLI over ACP, so it reuses the
+            # Claude Code login instead of an API key.
+            provider = "claude-code";
             enable_cursor_planning_mode = true;
             enable_claude_text_editor_tool_mode = true;
             behaviour.auto_suggestions = false;
@@ -358,6 +355,7 @@
       extraPackages = [
         mcp-hub
         laravel-lsp
+        pkgs.claude-agent-acp
       ];
     };
   };

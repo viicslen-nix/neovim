@@ -15,8 +15,10 @@
       cyclePrevious = "<S-Tab>";
     };
 
-    assistant.copilot.mappings = {
-      suggestion.acceptLine = "<M-L>";
+    assistant.supermaven-nvim.setupOpts.keymaps = {
+      accept_suggestion = "<M-L>";
+      accept_word = "<M-l>";
+      clear_suggestion = "<M-]>";
     };
 
     comments.comment-nvim.mappings = {
